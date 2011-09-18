@@ -1,0 +1,68 @@
+/*
+ * Copyright (c) 2011 Toni Spets <toni.spets@iki.fi>
+ *
+ * Permission to use, copy, modify, and distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ */
+
+#include <windows.h>
+#include <afxres.h>
+
+#include "res/dialog.h"
+
+DLG_STATUS DIALOGEX 0, 0, 150, 28
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "CnCNet Tester"
+FONT 8, "MS Shell Dlg 2"
+{
+    CONTROL "", ITM_STATUS, "STATIC", SS_CENTER|SS_CENTERIMAGE, 0, 0, 150, 28
+}
+
+DLG_SETTINGS DIALOGEX 0, 0, 150, 64
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "CnCNet Tester"
+FONT 8, "MS Shell Dlg 2"
+{
+    CONTROL "Local UDP port:", IDC_STATIC, "STATIC", 0, 7, 7, 64, 8
+    EDITTEXT ITM_PORT_INT, 7, 17, 64, 12, ES_NUMBER
+    CONTROL "External UDP port:", IDC_STATIC, "STATIC", 0, 78, 7, 64, 8
+    EDITTEXT ITM_PORT_EXT, 78, 17, 64, 12, ES_NUMBER
+    CONTROL "", IDC_STATIC, "STATIC", SS_ETCHEDFRAME, 7, 36, 136, 1
+    PUSHBUTTON "&Test", ITM_TEST, 7, 43, 50, 14
+    PUSHBUTTON "&Cancel", ITM_CANCEL, 93, 43, 50, 14
+}
+
+1 VERSIONINFO
+{
+    BLOCK "StringFileInfo"
+    {
+        BLOCK "040904B0"
+        {
+            VALUE "CompanyName", "Toni Spets"
+            VALUE "FileVersion", "git~__REV__"
+            VALUE "InternalName", "cncnet-tester"
+            VALUE "LegalCopyright", "Copyright (c) 2011 Toni Spets"
+            VALUE "OriginalFileName", "cncnet-tester.exe"
+        }
+    }
+
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation",  0x0409, 0x04B0
+    }
+}
+
+small   ICON "res/cncnet-tester-16x16.ico"
+medium  ICON "res/cncnet-tester-32x32.ico"
+large   ICON "res/cncnet-tester-48x48.ico"
+
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "res/cncnet-tester.exe.manifest"
